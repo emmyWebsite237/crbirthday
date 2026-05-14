@@ -9,7 +9,7 @@
     <link href="googleapis.com" rel="stylesheet">
     
     <style>
-        /* GLOBAL RESET */
+        /* MOBILE FIRST GLOBAL RESET */
         * {
             margin: 0;
             padding: 0;
@@ -19,10 +19,11 @@
         body, html {
             height: 100%;
             width: 100%;
-            background-color: #0b0c10;
+            background-color: #050508;
             font-family: 'Poppins', sans-serif;
             overflow: hidden;
             color: #fff;
+            -webkit-tap-highlight-color: transparent;
         }
 
         /* INTRO START OVERLAY */
@@ -35,39 +36,34 @@
             background: #0f111a;
             z-index: 999;
             display: flex;
-            flex-direction: column;
             align-items: center;
             justify-content: center;
             transition: opacity 0.8s ease;
+            padding: 20px;
         }
 
         .play-trigger {
             background: #ff4757;
             color: #fff;
             border: 2px solid #fff;
-            padding: 18px 45px;
-            font-size: 1.5rem;
+            padding: 16px 40px;
+            font-size: 1.3rem;
             text-transform: uppercase;
             font-weight: 800;
             cursor: pointer;
             border-radius: 50px;
             box-shadow: 0 10px 25px rgba(255, 71, 87, 0.4);
             letter-spacing: 1px;
-            transition: all 0.3s ease;
+            width: 100%;
+            max-width: 280px;
+            text-align: center;
         }
 
-        .play-trigger:hover {
-            transform: scale(1.05);
-            background: #ff6b81;
-            box-shadow: 0 15px 30px rgba(255, 71, 87, 0.6);
-        }
-
-        /* HIDDEN AUDIO ELEMENT */
         audio {
             display: none;
         }
 
-        /* MAIN MEDIA EDIT TIMELINE */
+        /* MAIN TIMELINE CONTAINER */
         .timeline-container {
             position: relative;
             width: 100%;
@@ -76,7 +72,7 @@
             background: #000;
         }
 
-        /* BEAT-SYNCED VIDEO SEGMENTS */
+        /* BEAT-SYNCED VIDEO SEGMENTS - OPTIMIZED FOR PHONES */
         .clip {
             position: absolute;
             top: 0;
@@ -84,31 +80,41 @@
             width: 100%;
             height: 100%;
             display: none;
-            justify-content: center;
+            flex-direction: column;
+            justify-content: flex-end; /* Pushes text content to the bottom */
             align-items: center;
             background-position: center center;
             background-size: cover;
             background-repeat: no-repeat;
+            padding-bottom: 50px; /* Safe space from screen bottom */
         }
 
-        /* RETROFITTED HARSH FALLBACKS */
-        .color-fallback-1 { background-color: #ff0055; }
-        .color-fallback-2 { background-color: #00ffcc; }
-        .color-fallback-3 { background-color: #ffff00; }
-        .color-fallback-4 { background-color: #7000ff; }
-        .color-fallback-5 { background-color: #ff5500; }
+        /* HIGH-CONTRAST GRADIENT OVERLAY TO KEEP TEXT READABLE AT BOTTOM */
+        .clip::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 45%;
+            background: linear-gradient(to top, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.4) 60%, transparent 100%);
+            z-index: 1;
+        }
 
-        /* BRUTALIST TYPOGRAPHY TEXT LAYERS */
+        /* PHONE POSITIONED HIGH-CONTRAST TYPOGRAPHY */
         .celebration-text {
-            font-size: 5rem;
+            font-size: 3rem; /* Scaled down for perfect display on mobile viewports */
             text-transform: uppercase;
             text-align: center;
             font-weight: 900;
-            line-height: 0.9;
-            letter-spacing: -1px;
+            line-height: 1.0;
+            letter-spacing: 0px;
             font-family: 'Archivo Black', sans-serif;
             color: #fff;
-            text-shadow: 4px 4px 0px #ff4757, -4px -4px 0px #2f3542;
+            text-shadow: 3px 3px 0px #ff4757, -2px -2px 0px rgba(0,0,0,0.8);
+            z-index: 2;
+            padding: 0 20px;
+            width: 100%;
         }
 
         /* CLEAN SPEED MOVEMENT MODIFIERS */
@@ -137,96 +143,104 @@
         }
         .text-pop-5 { animation: textScale 0.6s infinite alternate; }
 
-        /* COURSE REP SURPRISE BIRTHDAY NOTE */
+        /* COURSE REP NOTE POSITIONED PERFECTLY AT BOTTOM ZONE */
         #course-rep-card {
             position: absolute;
-            top: -100%;
+            bottom: -100%; /* Inverted transition direction to fall up/in from bottom */
             left: 50%;
             transform: translate(-50%, 0);
-            width: 90%;
-            max-width: 500px;
-            background: rgba(255, 255, 255, 0.12);
-            backdrop-filter: blur(25px);
-            -webkit-backdrop-filter: blur(25px);
-            border: 1px solid rgba(255, 255, 255, 0.25);
-            padding: 40px 30px;
-            border-radius: 24px;
-            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.5);
+            width: 92%;
+            max-width: 440px;
+            background: rgba(15, 17, 26, 0.75);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            padding: 25px 20px;
+            border-radius: 20px;
+            box-shadow: 0 -15px 40px rgba(0, 0, 0, 0.6);
             text-align: center;
             z-index: 100;
             opacity: 0;
             display: none;
-            transition: all 1.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            transition: all 1.2s cubic-bezier(0.175, 0.885, 0.32, 1.15);
         }
 
+        /* Positions the layout card precisely at phone base area */
         #course-rep-card.triggered {
             display: block !important;
-            top: 50%;
-            transform: translate(-50%, -50%);
+            bottom: 30px;
+            transform: translate(-50%, 0);
             opacity: 1;
         }
 
         .rep-title {
-            font-size: 2.2rem;
+            font-size: 1.6rem;
             font-weight: 800;
-            color: #fff;
-            margin-bottom: 15px;
-            text-shadow: 0 2px 10px rgba(0,0,0,0.3);
+            color: #ff4757;
+            margin-bottom: 8px;
         }
 
         .rep-body {
-            font-family: 'Caveat', cursive;
-            font-size: 1.8rem;
+            font-size: 1rem;
             color: #f1f2f6;
             line-height: 1.4;
-            text-shadow: 0 1px 5px rgba(0,0,0,0.4);
+            font-weight: 500;
+        }
+
+        /* RESPONSIVE LAYOUT SCALING CARD EXTENSION FOR LAPTOPS */
+        @media (min-width: 768px) {
+            .celebration-text { font-size: 5rem; }
+            .clip { padding-bottom: 80px; }
+            #course-rep-card.triggered { bottom: 50px; }
+            .rep-title { font-size: 2rem; }
+            .rep-body { font-size: 1.2rem; }
         }
 
         /* ====== KEYFRAME ANIMATION PACK ====== */
         @keyframes slowZoomPulse {
             0% { transform: scale(1); }
-            50% { transform: scale(1.18); }
+            50% { transform: scale(1.12); }
             100% { transform: scale(1); }
         }
 
         @keyframes subtleWobble {
-            0% { transform: rotate(-1deg); }
-            100% { transform: rotate(1deg); }
+            0% { transform: rotate(-0.5deg); }
+            100% { transform: rotate(0.5deg); }
         }
 
         @keyframes fastSlideGlitch {
-            0% { transform: translate(0, 0) scale(1.05); filter: contrast(110%); }
-            50% { transform: translate(-10px, 8px) scale(1.1); filter: contrast(140%) brightness(1.2); }
-            100% { transform: translate(0, 0) scale(1.05); }
+            0% { transform: translate(0, 0); }
+            50% { transform: translate(-6px, 4px); filter: brightness(1.1); }
+            100% { transform: translate(0, 0); }
         }
 
         @keyframes heavyWobble {
-            0% { transform: scale(1.02) rotate(0deg); }
-            33% { transform: scale(1.15) rotate(-6deg); }
-            66% { transform: scale(0.98) rotate(6deg); }
-            100% { transform: scale(1.02) rotate(0deg); }
+            0% { transform: rotate(0deg); }
+            33% { transform: rotate(-3deg); }
+            66% { transform: rotate(3deg); }
+            100% { transform: rotate(0deg); }
         }
 
         @keyframes verticalBounce {
-            0% { transform: translateY(0) scaleY(1); }
-            50% { transform: translateY(-25px) scaleY(1.05); }
-            100% { transform: translateY(0) scaleY(1); }
+            0% { transform: translateY(0); }
+            50% { transform: translateY(-15px); }
+            100% { transform: translateY(0); }
         }
 
         @keyframes ultimateVibe {
-            0% { transform: translate(4px, 4px) rotate(0.5deg); }
-            50% { transform: translate(-4px, -4px) rotate(-0.5deg) scale(1.05); }
-            100% { transform: translate(4px, -4px) rotate(0.5deg); }
+            0% { transform: translate(2px, 2px); }
+            50% { transform: translate(-2px, -2px); }
+            100% { transform: translate(2px, -2px); }
         }
 
         @keyframes textScale {
-            0% { transform: scale(0.8); opacity: 0.9; }
-            100% { transform: scale(1.1); opacity: 1; }
+            0% { transform: scale(0.9); }
+            100% { transform: scale(1.05); }
         }
 
         @keyframes textStretch {
-            0% { transform: scaleX(0.85) scaleY(1.1); }
-            100% { transform: scaleX(1.1) scaleY(0.85); }
+            0% { transform: scaleX(0.9) scaleY(1.05); }
+            100% { transform: scaleX(1.05) scaleY(0.9); }
         }
     </style>
 </head>
@@ -237,38 +251,38 @@
         <button class="play-trigger" onclick="startCelebration()">Open Surprise 🎁</button>
     </div>
 
-    <!-- STREAMED MUSIC SOURCE (NO LOCAL UPLOAD REQUIRED) -->
+    <!-- NON-AI ORIGINAL STUDIO RECORDING WEB AUDIO STREAM -->
     <audio id="birthdayTrack" src="google.com" loop crossorigin="anonymous"></audio>
 
     <!-- LIVE TIMELINE LAYOUT -->
     <div class="timeline-container" id="timeline">
         
         <!-- CLIP 1 -->
-        <div class="clip color-fallback-1 smooth-zoom" id="clip1" style="background-image: url('pic1.jpeg');">
-            <div class="celebration-text text-pop-1">HAPPY<br>BIRTHDAY 🎉</div>
+        <div class="clip smooth-zoom" id="clip1" style="background-image: url('pic1.jpeg');">
+            <div class="celebration-text text-pop-1">HAPPY BIRTHDAY 🎉</div>
         </div>
 
         <!-- CLIP 2 -->
-        <div class="clip color-fallback-2 distortion-slide" id="clip2" style="background-image: url('pic2.jpeg');">
+        <div class="clip distortion-slide" id="clip2" style="background-image: url('pic2.jpeg');">
             <div class="celebration-text text-pop-2">BIG DAY 🎂</div>
         </div>
 
         <!-- CLIP 3 -->
-        <div class="clip color-fallback-3 wobble-spin" id="clip3" style="background-image: url('pic3.jpeg');">
+        <div class="clip wobble-spin" id="clip3" style="background-image: url('pic3.jpeg');">
             <div class="celebration-text text-pop-3">CELEBRATE ✨</div>
         </div>
 
         <!-- CLIP 4 -->
-        <div class="clip color-fallback-4 heavy-bounce" id="clip4" style="background-image: url('pic4.jpeg');">
+        <div class="clip heavy-bounce" id="clip4" style="background-image: url('pic4.jpeg');">
             <div class="celebration-text text-pop-4">SHINE BRIGHT 💎</div>
         </div>
 
         <!-- CLIP 5 -->
-        <div class="clip color-fallback-5 climax-grind" id="clip5" style="background-image: url('pic5.jpeg');">
+        <div class="clip climax-grind" id="clip5" style="background-image: url('pic5.jpeg');">
             <div class="celebration-text text-pop-5">CHEERS 🥂</div>
         </div>
 
-        <!-- COURSE REP FALL & FADE IN TRIBUTE CONTAINER -->
+        <!-- COURSE REP FALL & FADE IN TRIBUTE CONTAINER (BOTTOM POSITIONED) -->
         <div id="course-rep-card">
             <h2 class="rep-title">To Our Course Rep! 👑</h2>
             <p class="rep-body">
@@ -344,7 +358,7 @@
                 setTimeout(() => {
                     repCard.classList.add('triggered');
                 }, 50);
-            }, 20000);
+            }, 20000); // Triggers exactly at the 20-second mark
         }
     </script>
 </body>
