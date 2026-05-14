@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Phonk Birthday Edit ⚡</title>
+    <title>Yara Yara Phonk Birthday Edit ⚡</title>
     <link rel="preconnect" href="googleapis.com">
     <link rel="preconnect" href="gstatic.com" crossorigin>
     <link href="googleapis.com" rel="stylesheet">
@@ -79,7 +79,7 @@
 
         /* PHONK GLOBAL FLASH FILTER EFFECT */
         .master-strobe {
-            animation: globalFlash 0.3s infinite alternate;
+            animation: globalFlash 0.4s infinite alternate;
         }
 
         /* BEAT-SYNCED VIDEO SEGMENTS */
@@ -97,7 +97,7 @@
             background-repeat: no-repeat;
         }
 
-        /* HARSH FALLBACK COLORS WHEN IMAGES ARE MISSING */
+        /* HARSH BRUTALIST FALLBACK COLORS WHEN IMAGES ARE MISSING */
         .color-fallback-1 { background-color: #ff0055; }
         .color-fallback-2 { background-color: #00ffcc; }
         .color-fallback-3 { background-color: #ffff00; }
@@ -118,182 +118,157 @@
             transform: scale(0.5);
         }
 
-        /* SEGMENT SPECIFIC CAPCUT EDIT ANIMATIONS */
+        /* SUPER SLOWED PATTERN ANIMATIONS */
         
-        /* Clip 1: Drift Phase Zoom Loop */
-        .drift-zoom {
-            animation: zoomPulse 0.4s infinite ease-in-out, shakeRigid 0.2s infinite;
+        /* Clip 1: Heavy Slow-Mo Zoom Drop */
+        .slow-zoom {
+            animation: slowZoomPulse 0.78s infinite ease-in-out, heavyShake 0.39s infinite;
         }
         .text-pop-1 {
-            animation: textGrow 0.4s infinite alternate;
+            animation: textGrow 0.78s infinite alternate;
         }
 
-        /* Clip 2: Aggressive Screen Shake Wrap */
-        .aggressive-shake {
-            animation: hardShake 0.15s infinite linear;
+        /* Clip 2: Aggressive Deep-Bass Screen Distortion Wrap */
+        .bass-distortion {
+            animation: deepGlitchShake 0.18s infinite linear;
         }
         .text-pop-2 {
-            animation: textGlitch 0.2s infinite steps(2);
+            animation: textGlitch 0.36s infinite steps(2);
         }
 
-        /* Clip 3: Extreme Rotation Wobble */
-        .wobble-spin {
-            animation: crazyWobble 0.3s infinite linear;
+        /* Clip 3: Slow Motion Wobble-Spin Phase Shift */
+        .wobble-slow {
+            animation: heavyWobble 0.65s infinite linear;
         }
         .text-pop-3 {
-            animation: textSkew 0.3s infinite linear;
+            animation: textSkew 0.65s infinite linear;
         }
 
-        /* Clip 4: Glitch Bounce Warp */
-        .glitch-bounce {
-            animation: verticalBounce 0.25s infinite contrast(200%);
+        /* Clip 4: Heavy Glitch Half-Time Bounce */
+        .heavy-bounce {
+            animation: slowVerticalBounce 0.45s infinite ease-in-out;
         }
         .text-pop-4 {
-            animation: strobeText 0.1s infinite;
+            animation: strobeText 0.22s infinite;
         }
 
-        /* Clip 5: Finale Outro Extreme Grind */
-        .finale-grind {
-            animation: ultimateVibe 0.2s infinite, zoomPulse 0.8s infinite;
+        /* Clip 5: Finale Outro Extreme Slow Grind */
+        .climax-grind {
+            animation: ultimateVibe 0.35s infinite, slowZoomPulse 1.1s infinite;
         }
         .text-pop-5 {
             font-size: 6rem;
-            animation: textGrow 0.2s infinite linear;
+            animation: textGrow 0.35s infinite linear;
         }
 
-        /* WATERMARK CAPCUT FOOTER OVERLAY */
-        .capcut-watermark {
-            position: absolute;
-            bottom: 20px;
-            right: 20px;
-            background: rgba(0,0,0,0.7);
-            padding: 5px 15px;
-            border-radius: 5px;
-            font-size: 0.8rem;
-            letter-spacing: 1px;
-            text-transform: uppercase;
-            border-left: 3px solid #00ffcc;
-            z-index: 10;
-        }
-
-        /* ====== COMPLEX CSS KEYFRAMES (400+ LINE BULK) ====== */
+        /* ====== COMPLEX CSS KEYFRAMES (ADJUSTED FOR SUPER SLOWED CADENCE) ====== */
         
         @keyframes globalFlash {
-            0% { filter: brightness(1) contrast(100%); }
-            100% { filter: brightness(1.4) contrast(150%) saturate(200%); }
+            0% { filter: brightness(0.9) contrast(110%); }
+            100% { filter: brightness(1.6) contrast(170%) saturate(220%); }
         }
 
-        @keyframes zoomPulse {
+        @keyframes slowZoomPulse {
             0% { transform: scale(1); }
-            50% { transform: scale(1.15); }
+            50% { transform: scale(1.22); }
             100% { transform: scale(1); }
         }
 
-        @keyframes shakeRigid {
+        @keyframes heavyShake {
             0% { transform: translate(0, 0) rotate(0deg); }
-            20% { transform: translate(-4px, 4px) rotate(-1deg); }
-            40% { transform: translate(-4px, -4px) rotate(1deg); }
-            60% { transform: translate(4px, 4px) rotate(0deg); }
-            80% { transform: translate(4px, -4px) rotate(-1deg); }
+            25% { transform: translate(-6px, 6px) rotate(-1.5deg); }
+            50% { transform: translate(6px, -6px) rotate(1.5deg); }
+            75% { transform: translate(-6px, -6px) rotate(-1.5deg); }
             100% { transform: translate(0, 0) rotate(0deg); }
         }
 
-        @keyframes hardShake {
+        @keyframes deepGlitchShake {
             0% { transform: translate(0, 0) skewX(0deg); filter: hue-rotate(0deg); }
-            25% { transform: translate(-12px, 8px) skewX(-6deg); filter: hue-rotate(90deg); }
-            50% { transform: translate(14px, -12px) skewX(8deg); }
-            75% { transform: translate(-8px, -6px) skewX(-4deg); filter: hue-rotate(180deg); }
-            100% { transform: translate(10px, 10px) skewX(0deg); filter: hue-rotate(360deg); }
+            33% { transform: translate(-18px, 10px) skewX(-10deg); filter: hue-rotate(120deg); }
+            66% { transform: translate(18px, -14px) skewX(12deg); filter: hue-rotate(240deg); }
+            100% { transform: translate(0, 0) skewX(0deg); filter: hue-rotate(360deg); }
         }
 
-        @keyframes crazyWobble {
-            0% { transform: scale(1) rotate(0deg); }
-            33% { transform: scale(1.2) rotate(-8deg); filter: invert(0); }
-            66% { transform: scale(0.9) rotate(8deg); filter: invert(0.1); }
-            100% { transform: scale(1) rotate(0deg); }
+        @keyframes heavyWobble {
+            0% { transform: scale(1.05) rotate(0deg); }
+            33% { transform: scale(1.25) rotate(-12deg); }
+            66% { transform: scale(0.95) rotate(12deg); }
+            100% { transform: scale(1.05) rotate(0deg); }
         }
 
-        @keyframes verticalBounce {
+        @keyframes slowVerticalBounce {
             0% { transform: translateY(0) scaleY(1); }
-            25% { transform: translateY(-30px) scaleY(1.1); }
-            50% { transform: translateY(0) scaleY(0.9); }
-            75% { transform: translateY(15px) scaleY(1); }
+            30% { transform: translateY(-45px) scaleY(1.15); filter: contrast(180%); }
+            60% { transform: translateY(0) scaleY(0.85); }
             100% { transform: translateY(0) scaleY(1); }
         }
 
         @keyframes ultimateVibe {
-            0% { transform: translate(4px, 4px) rotate(1deg) scale(1); }
-            50% { transform: translate(-4px, -4px) rotate(-1deg) scale(1.08); filter: saturate(3); }
-            100% { transform: translate(4px, -4px) rotate(1deg) scale(1); }
+            0% { transform: translate(8px, 8px) rotate(2deg) scale(1); }
+            50% { transform: translate(-8px, -8px) rotate(-2deg) scale(1.12); filter: saturate(4); }
+            100% { transform: translate(8px, -8px) rotate(2deg) scale(1); }
         }
 
         @keyframes textGrow {
-            0% { transform: scale(0.7); opacity: 0.8; }
-            100% { transform: scale(1.3); opacity: 1; color: #00ffcc; }
+            0% { transform: scale(0.65); opacity: 0.7; }
+            100% { transform: scale(1.4); opacity: 1; color: #00ffcc; }
         }
 
         @keyframes textGlitch {
-            0% { transform: translate(5px, -2px) skewX(10deg); clip-path: inset(10% 0 30% 0); }
-            50% { transform: translate(-5px, 3px) skewX(-10deg); clip-path: inset(40% 0 5% 0); }
+            0% { transform: translate(8px, -4px) skewX(15deg); clip-path: inset(15% 0 35% 0); }
+            50% { transform: translate(-8px, 5px) skewX(-15deg); clip-path: inset(45% 0 10% 0); }
             100% { transform: translate(0, 0); clip-path: inset(0); }
         }
 
         @keyframes textSkew {
-            0% { transform: rotate(-5deg) scale(0.9); color: #ffff00; }
-            50% { transform: rotate(5deg) scale(1.1); color: #ff0055; }
-            100% { transform: rotate(-5deg) scale(0.9); }
+            0% { transform: rotate(-8deg) scale(0.85); color: #ffff00; }
+            50% { transform: rotate(8deg) scale(1.2); color: #ff0055; }
+            100% { transform: rotate(-8deg) scale(0.85); }
         }
 
         @keyframes strobeText {
-            0%, 49% { background: #000; color: #fff; opacity: 1; }
-            50%, 100% { background: #fff; color: #000; opacity: 0.9; }
+            0%, 49% { background: #000; color: #fff; }
+            50%, 100% { background: #fff; color: #000; }
         }
     </style>
 </head>
 <body>
 
-    <!-- START MONITOR SCREEN OVERLAY -->
+    <!-- START DROP SCREEN OVERLAY -->
     <div id="intro-overlay">
-        <h2 style="font-size: 1.5rem; text-transform: uppercase; margin-bottom: 20px; letter-spacing: 4px; color: #888;">Volume Warning 🎧</h2>
-        <button class="play-trigger" onclick="startPhonkEdit()">Drop the Beat</button>
+        <h2 style="font-size: 1.5rem; text-transform: uppercase; margin-bottom: 20px; letter-spacing: 4px; color: #888;">YARA YARA SLOWED DROP 🎧</h2>
+        <button class="play-trigger" onclick="startPhonkEdit()">Start Sequence</button>
     </div>
 
     <!-- MAIN PHONK EDIT AUDIO SOURCE -->
-    <!-- Place your choice phonk track inside this file path -->
+    <!-- Place Elliot Sutton's Super Slowed version MP3 file in this path -->
     <audio id="phonkTrack" src="birthday-audio.mp3" loop></audio>
 
-    <!-- CAPCUT LIVE COMPACT TIMELINE LAYOUT -->
+    <!-- LIVE TIMELINE COMPACT FRAME LAYOUT -->
     <div class="timeline-container master-strobe" id="timeline">
         
-        <div class="capcut-watermark">CapCut Web Edit</div>
-
-        <!-- CLIP SECTION 1: Intro Bass Drop -->
-        <!-- Replace 'pic1.jpg' with your filename -->
-        <div class="clip color-fallback-1 drift-zoom" id="clip1" style="background-image: url('pic1.jpg');">
-            <div class="phonk-text text-pop-1">WAKE UP! ✨</div>
+        <!-- CLIP 1: Half-Time Bass Intro Build -->
+        <div class="clip color-fallback-1 slow-zoom" id="clip1" style="background-image: url('pic1.jpg');">
+            <div class="phonk-text text-pop-1">GET READY... ⚡</div>
         </div>
 
-        <!-- CLIP SECTION 2: Heavy Cowbell Distortion Phase -->
-        <!-- Replace 'pic2.png' with your filename -->
-        <div class="clip color-fallback-2 aggressive-shake" id="clip2" style="background-image: url('pic2.png');">
+        <!-- CLIP 2: Primary Phonk Cowbell Drop -->
+        <div class="clip color-fallback-2 bass-distortion" id="clip2" style="background-image: url('pic2.png');">
             <div class="phonk-text text-pop-2">BIRTHDAY<br>KING 👑</div>
         </div>
 
-        <!-- CLIP SECTION 3: Mid-Track Velocity Curve Switch -->
-        <!-- Replace 'pic3.jpg' with your filename -->
-        <div class="clip color-fallback-3 wobble-spin" id="clip3" style="background-image: url('pic3.jpg');">
+        <!-- CLIP 3: Slow Motion Heavy Roll Vocal Hook -->
+        <div class="clip color-fallback-3 wobble-slow" id="clip3" style="background-image: url('pic3.jpg');">
             <div class="phonk-text text-pop-3">LEVELED UP<br>💥💥💥</div>
         </div>
 
-        <!-- CLIP SECTION 4: Glitch Bass Roll Phase -->
-        <!-- Replace 'pic4.png' with your filename -->
-        <div class="clip color-fallback-4 glitch-bounce" id="clip4" style="background-image: url('pic4.png');">
-            <div class="phonk-text text-pop-4">DON'T SLEEP ⚡</div>
+        <!-- CLIP 4: Deep Stutter Slow Bass Hit -->
+        <div class="clip color-fallback-4 heavy-bounce" id="clip4" style="background-image: url('pic4.png');">
+            <div class="phonk-text text-pop-4">YARA YARA 🎶</div>
         </div>
 
-        <!-- CLIP SECTION 5: Infinite Loop Climax Outro -->
-        <!-- Replace 'pic5.jpg' with your filename -->
-        <div class="clip color-fallback-5 finale-grind" id="clip5" style="background-image: url('pic5.jpg');">
+        <!-- CLIP 5: Main Looping Climax Outro -->
+        <div class="clip color-fallback-5 climax-grind" id="clip5" style="background-image: url('pic5.jpg');">
             <div class="phonk-text text-pop-5">HBD!!! 🔥</div>
         </div>
 
@@ -314,13 +289,11 @@
         ];
 
         function startPhonkEdit() {
-            // Drop overlay and play sound loop instantly
             overlay.style.opacity = '0';
             setTimeout(() => overlay.style.display = 'none', 500);
             timeline.style.display = 'block';
             track.play();
             
-            // Execute fast beat-cutting loops
             runPhonkSequencer();
         }
 
@@ -331,30 +304,30 @@
         function runPhonkSequencer() {
             let step = 0;
 
-            // Strict time schedule mimicking a 140BPM Phonk pattern curve
+            // Recalculated cut lengths matching the heavy half-time gaps of "Super Slowed" tracks
             function playSequenceLoop() {
                 clearAllClips();
                 
                 if (step === 0) {
-                    clips[0].style.display = 'flex'; // Intro drift
-                    setTimeout(() => { step = 1; playSequenceLoop(); }, 1800);
+                    clips[0].style.display = 'flex'; // Initial low bass sweep
+                    setTimeout(() => { step = 1; playSequenceLoop(); }, 2400); 
                 } 
                 else if (step === 1) {
-                    clips[1].style.display = 'flex'; // Bass Drop Shake
-                    setTimeout(() => { step = 2; playSequenceLoop(); }, 1400);
+                    clips[1].style.display = 'flex'; // Distorted main beat impact
+                    setTimeout(() => { step = 2; playSequenceLoop(); }, 1800); 
                 } 
                 else if (step === 2) {
-                    clips[2].style.display = 'flex'; // Wobble spin curve
-                    setTimeout(() => { step = 3; playSequenceLoop(); }, 1600);
+                    clips[2].style.display = 'flex'; // Slow wobble section 
+                    setTimeout(() => { step = 3; playSequenceLoop(); }, 2200); 
                 } 
                 else if (step === 3) {
-                    clips[3].style.display = 'flex'; // Fast stutter bounce
-                    setTimeout(() => { step = 4; playSequenceLoop(); }, 1200);
+                    clips[3].style.display = 'flex'; // Deep sub-bass drop stutter
+                    setTimeout(() => { step = 4; playSequenceLoop(); }, 1600); 
                 } 
                 else if (step === 4) {
-                    clips[4].style.display = 'flex'; // Main finale theme
-                    // Loops back to beat phase 1 to act like a continuous TikTok edit loop
-                    setTimeout(() => { step = 1; playSequenceLoop(); }, 2500);
+                    clips[4].style.display = 'flex'; // Climax groove
+                    // Loops back to step 1 to mimic a continuous looping stream
+                    setTimeout(() => { step = 1; playSequenceLoop(); }, 3200); 
                 }
             }
 
